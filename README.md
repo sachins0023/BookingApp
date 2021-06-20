@@ -8,7 +8,7 @@ I have wrapped the _app.js in a couple of context providers - One for the Themin
 
 components is a folder with the custom components used and resused in various components of the app.
 
-This app doesnt connect to any APIs. Whatever data is stored is managed through storing in the state of the app. The state was shared among different components using the above mentioned Context provider set up and the reducer functions being called using actions. An initial state is hardcoded in the reducer for you to start working with it.
+This app doesnt connect to any APIs. Whatever data is stored is managed through storing in the state of the app. The state was shared among different components using the above mentioned Context provider set up and the reducer functions being called using actions. An initial state is hardcoded in the reducer for you to start working with it. Also unit testing / integration testing is not implemented.
 
 API integrations and authentications are not set up in this app due to time constraints. For now, to test the functionalities, imagine as the admin. So you will have access to the Theatre setup as well as booking Panel. (User would be seeing only the booking panel).
 
