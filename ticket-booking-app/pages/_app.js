@@ -5,6 +5,7 @@ import {
 } from "@chakra-ui/react";
 import { Global, css } from "@emotion/react";
 import customTheme from "../styles/theme";
+import TheatreProvider from "../components/context";
 
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -13,9 +14,6 @@ const GlobalStyle = ({ children }) => {
     <>
       <Global
         styles={css`
-          ${
-            "" /* ${colorMode === 'light' ? prismLightTheme : prismDarkTheme}; */
-          }
           ::selection {
             background-color: #90cdf4;
             color: #fefefe;
@@ -43,18 +41,20 @@ const GlobalStyle = ({ children }) => {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider resetCSS theme={customTheme}>
-      <ColorModeProvider
-        options={{
-          initialColorMode: "dark",
-          useSystemColorMode: true,
-        }}
-      >
-        <GlobalStyle>
-          <Component {...pageProps} />
-        </GlobalStyle>
-      </ColorModeProvider>
-    </ChakraProvider>
+    <TheatreProvider>
+      <ChakraProvider resetCSS theme={customTheme}>
+        <ColorModeProvider
+          options={{
+            initialColorMode: "dark",
+            useSystemColorMode: true,
+          }}
+        >
+          <GlobalStyle>
+            <Component {...pageProps} />
+          </GlobalStyle>
+        </ColorModeProvider>
+      </ChakraProvider>
+    </TheatreProvider>
   );
 }
 
